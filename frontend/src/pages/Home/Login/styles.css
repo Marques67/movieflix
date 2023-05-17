@@ -1,0 +1,141 @@
+.login-container{
+    width: 298px;
+    height: 464px;
+
+    background-color: #6C6C6C;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    
+    align-items: center;
+}
+
+.login-container h1{
+    color: #fff;
+    font-weight: 400;
+    font-size: 36px;
+    font-style: normal;
+    line-height: 49px;
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    margin-top: 59px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.login-container input{
+    box-sizing: border-box;
+    background: #FEFEFE;
+    border: 1px solid #FEFEFE;
+    border-radius: 4px;
+
+
+    width: 90%;
+    height: 47px;
+    margin-bottom: 5px;
+}
+
+.login-container input::placeholder{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.015em;
+    color: #9E9E9E;
+
+    padding-left: 14px;
+}
+
+.input-container{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login-container button{
+    background: #FFC700;
+    border-radius: 4px;
+
+    width: 90%;
+    height: 50px;
+    margin-top: 34px;
+    margin-bottom: 100px;
+    border: none;
+
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+}
+
+.form-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-alert-container{
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.invalid-container{
+    color: crimson;
+}
+
+
+@media (min-width: 320px){
+    .login-container{
+        width: 298px;
+        height: 464px;
+    }
+}
+
+@media (min-width: 576px){
+    .login-container{
+        width: 479px;
+        height: 573px;
+    }
+
+    .login-container input{
+        box-sizing: border-box;
+        background: #FEFEFE;
+        border: 1px solid #FEFEFE;
+        border-radius: 4px;
+    
+        width: 85%;
+        height: 47px;
+    }
+
+    .error-alert-container{
+        width: 85%;
+    }
+    
+    .login-container button{
+        height: 65px;
+        width: 85%;
+        margin-top: 44px;
+    }
+
+    .login-container h1{
+        font-weight: 400;
+        font-size: 48px;
+        margin-top: 74px;
+        margin-bottom: 35px;
+    }
+
+    .input-container{
+        margin-bottom: 30px;
+    }
+}
