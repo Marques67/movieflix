@@ -1,104 +1,57 @@
-
-
-.valuation-container{
-    background: #6C6C6C;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-
-    width: 95%;
-    height: auto;
-
-    margin-top: 17px;
-    padding: 10px;
+.review-form-card {
+  font-size: 16px;
+  height: 155px;
+  padding: 20px 10px 0px 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0.25);
 }
 
-.valuation-container input{
-    background: #FFFFFF;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
-
-    height: 50px;
-    width: 96%;
-
-    margin-top: 10px;
-    margin-bottom: 17px;
+.base-input {
+  margin-bottom: 17px;
+  padding-left: 10px;
 }
 
-.valuation-container input::placeholder{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-    letter-spacing: -0.015em;
-
-    padding-left: 10px;
+.base-input::placeholder {
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: center;
+  letter-spacing: -0.015em;
+  padding: 0px;
 }
 
-
-
-.valuation-container button{
-    background: #FFC700;
-    border-radius: 4px;
-    border: none;
-
-    height: 50px;
-    width: 98%;
-
-    margin-bottom: 10px;
-
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-    letter-spacing: -0.015em;
-    color: #000000;
-    mix-blend-mode: normal;
-    text-transform: uppercase;
+@media (min-width: 576px) {
+  .review-form-card-input {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
-.form-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@media (min-width: 768px) {
+  .review-form-card {
+    height: 200px;
+    padding: 42px 30px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .base-input {
+    margin-bottom: 20px;
+    padding-left: 15px;
+  }
 }
 
-
-@media (min-width: 576px){
-    .valuation-container button{
-        height: 50px;
-
-        width: 334px;
-
-        margin-bottom: 10px;
-    }
-
-    .valuation-container input{
-
-    
-        height: 50px;
-        width: 96%;
-    
-        margin-top: 10px;
-        margin-bottom: 17px;
-    }
+@media (min-width: 1200px) {
+  .review-form-card {
+    padding: 40px 30px;
+    margin-top: 0px;
+  }
 }
 
-@media (min-width: 768px){
-    .valuation-container input{
-        width: 97%;
-    }
-}
-
-@media (min-width: 992px){
-    .valuation-container input{
-        width: 98%;
-    }
-}
-
-@media (min-width: 1200px){
-    .valuation-container input{
-        width: 99%;
-    }
+@media (min-width: 1400px) {
+  .review-form-card {
+    margin-left: 110px;
+    margin-right: 110px;
+  }
 }

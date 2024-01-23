@@ -1,16 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Movie } from 'types/movie';
 import './styles.css';
 
 type Props = {
-  id: number;
+  movie: Movie;
 };
 
-const MovieCard = ({ id }: Props) => {
+const MovieCard = ({ movie }: Props) => {
   return (
-    <div className="movie-card-container">
-      <Link to={'movies/' + id}>
-        <p>Acessar/movies/{id}</p>
-      </Link>
+    <div className="base-card movie-card">
+      <div className="card-top-container">
+        <img src={movie.imgUrl} alt={movie.title} />
+      </div>
+      <div className="card-bottom-container">
+        <h6>{movie.title}</h6>
+        <span>{movie.year}</span>
+        <p>{movie.subTitle}</p>
+      </div>
     </div>
   );
 };

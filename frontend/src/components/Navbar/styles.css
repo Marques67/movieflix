@@ -1,92 +1,63 @@
-
-.navbar-container{
-    background-color: #FFC700;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.main-nav {
+  padding-left: 10px !important;
+  min-height: 70px;
 }
 
-.navbar-container a{
-    text-decoration: none;
-    padding-left: 18px;
+.nav-logo-text {
+  font-size: 24px !important;
+  color: #000000;
 }
 
-.navbar-container a:hover{
-    cursor: pointer;
+.nav-login-logout {
+  width: 100px;
+  height: 30px;
+  padding: 4px 2px 4px 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 10px;
 }
 
-.navbar-container h1{
-    color: #000;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
-    letter-spacing: -0.015em;
+@media (min-width: 576px) {
+  .main-nav {
+    padding-left: 15px !important;
+  }
+
+  .nav-login-logout {
+    margin-right: 20px;
+  }
 }
 
-.navbar-container button{
-    border: 1px solid #000000;
-    border-radius: 10px;
-    background-color: #FFC700;
-    margin-right: 10px;
-    width: 100px;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: -0.015em;
+@media (min-width: 768px) {
+  .main-nav {
+    padding-left: 23px !important;
+  }
+
+  .nav-login-logout {
+    margin-right: 40px;
+  }
 }
 
-@media (min-width: 576px){
-    .navbar-container a{
-        padding-left: 23px;
-    }
+@media (min-width: 1200px) {
+  .main-nav {
+    padding-left: 40px !important;
+  }
 
-    .navbar-container button{
-        border: 1px solid #000000;
-        border-radius: 10px;
-        background-color: #FFC700;
-        margin-right: 10px;
-        width: 100px;
-        height: 30px;
-        align-items: center;
-        justify-content: center;    
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: -0.015em;
-    }    
-    
+  .nav-login-logout {
+    margin-right: 40px;
+  }
 }
 
-@media (min-width: 768px){
-    .navbar-container a{
-        padding-left: 31px;
-    }
-    
-    .navbar-container button{
-        margin-right: 15px;
-    }
-    
+@media (min-width: 1366px) {
+  .nav-login-logout {
+    margin-right: 240px;
+  }
 }
 
-@media (min-width: 1200px){
-    .navbar-container a{
-        padding-left: 49px;
-    }
-    
-    .navbar-container button{
-        margin-right: 33px;
-    }
-    
+@media (min-width: 1400px) {
+  .nav-login-logout {
+    margin-right: 240px;
+  }
 }

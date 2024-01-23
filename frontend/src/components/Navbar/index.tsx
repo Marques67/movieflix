@@ -1,9 +1,11 @@
+//import { hasAnyRoles } from 'util/auth';
+
+import { AuthContext } from 'AuthContext';
 import { useContext, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../../AuthContext';
-import { getTokenData, isAuthenticated } from '../../util/auth';
-import history from '../../util/history';
-import { removeAuthData } from '../../util/storage';
+import { Link } from 'react-router-dom';
+import { getTokenData, isAuthenticated } from 'util/auth';
+import history from 'util/history';
+import { removeAuthData } from 'util/storage';
 import './styles.css';
 
 const Navbar = () => {
@@ -22,7 +24,7 @@ const Navbar = () => {
     }
   }, [setAuthContextData]);
 
-  const handleLogoutClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClik = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     removeAuthData();
     setAuthContextData({
@@ -32,17 +34,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar-container">
-      <NavLink to="/">
-        <h1>MovieFlix</h1>
-      </NavLink>
-
-      {authContextData.authenticated && (
-        <>
-          <span>{authContextData.tokenData?.user_name}</span>
-          <button onClick={handleLogoutClick}>SAIR</button>
-        </>
-      )}
+    <nav className="navbar bg-primary main-nav">
+      <div className="container-fluid">
+        <Link to="/movies" className="nav-logo-text">
+          <h4>MovieFlix</h4>
+        </Link>
+        {authContextData.authenticated ? (
+          <Link to="/" className="nav-login-logout" onClick={handleClik}>
+            SAIR
+          </Link>
+        ) : undefined}
+      </div>
     </nav>
   );
 };

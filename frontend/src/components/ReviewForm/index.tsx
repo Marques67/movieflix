@@ -1,7 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
+import ButtonForm from 'Components/ButtonForm';
 import { useForm } from 'react-hook-form';
-import { Review } from '../../types/review';
-import { requestBackend } from '../../util/requests';
+import { Review } from 'types/review';
+import { requestBackend } from 'util/requests';
 import './styles.css';
 
 type Props = {
@@ -14,7 +15,7 @@ type FormData = {
   text: string;
 };
 
-export const ReviewForm = ({ movieId, onInsertReview }: Props) => {
+const ReviewForm = ({ movieId, onInsertReview }: Props) => {
   const {
     register,
     handleSubmit,
@@ -32,28 +33,32 @@ export const ReviewForm = ({ movieId, onInsertReview }: Props) => {
       withCredentials: true,
     };
 
-    requestBackend(config)
-      .then((response) => {
-        setValue('text', '');
-        onInsertReview(response.data);
-      })
-      .catch((error) => {
-        console.log('Erro', error);
-      });
+    requestBackend(config).then((response) => {
+      setValue('text', '');
+      onInsertReview(response.data);
+    });
   };
 
   return (
-    <div className="valuation-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="form-container">
-        <input
-          {...register('text', {
-            required: 'Campo Obrigatório',
-          })}
-          type="text"
-          className={`${errors.text ? 'form-control is-invalid' : ''}`}
-          placeholder="Deixe sua avaliação aqui"
-        />
-        <button type="submit">Salvar Avaliação</button>
+    <div className="base-card review-form-card">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-4 review-form-card-input">
+          <input
+            {...register('text', {
+              required: 'Preenchimento de avaliação obrigatório',
+            })}
+            type="text"
+            className={`form-control base-input ${
+              errors.text ? 'is-invalid' : ''
+            }`}
+            placeholder="Deixe sua avaliação aqui"
+            name="text"
+          />
+          <div className="invalid-feedback d-block">{errors.text?.message}</div>
+          <div className="submit">
+            <ButtonForm text="SALVAR AVALIAÇÃO" />
+          </div>
+        </div>
       </form>
     </div>
   );
