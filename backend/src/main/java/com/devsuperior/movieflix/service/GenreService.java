@@ -1,9 +1,7 @@
 package com.devsuperior.movieflix.service;
 
 import com.devsuperior.movieflix.dto.GenreDTO;
-import com.devsuperior.movieflix.dto.UserDTO;
 import com.devsuperior.movieflix.entitites.Genre;
-import com.devsuperior.movieflix.entitites.User;
 import com.devsuperior.movieflix.repositories.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

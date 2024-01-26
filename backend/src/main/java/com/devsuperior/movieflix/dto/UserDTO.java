@@ -2,49 +2,67 @@ package com.devsuperior.movieflix.dto;
 
 import com.devsuperior.movieflix.entitites.User;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserDTO implements Serializable {
 
-    private Long id;
-    private String name;
-    private String email;
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	
+	@NotBlank(message = "Campo obrigatório")
+	private String name;
+	
+	@Email(message = "Favor digitar um email válido")
+	private String email;
+	
+	Set<RoleDTO> roles = new HashSet<>();
+	
+	public UserDTO() {}
 
-    public UserDTO() {}
+	public UserDTO(Long id, String name, String email) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+	}
+	
+	public UserDTO(User entity) {
+		id = entity.getId();
+		name = entity.getName();
+		email = entity.getEmail();
+		entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
+	}
 
-    public UserDTO(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public UserDTO(User entity) {
-        id = entity.getId();
-        name = entity.getName();
-        email = entity.getEmail();
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public Set<RoleDTO> getRoles() {
+		return roles;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

@@ -1,28 +1,48 @@
-import { Route, Router, Switch } from 'react-router-dom';
-import Home from 'pages/Home';
-import Navbar from 'Components/Navbar';
-import history from 'util/history';
-import PrivateRoute from 'Components/PrivateRoute';
-import Movie from 'pages/Home/Private/MovieCatalog';
-import MovieDetails from 'pages/Home/Private/MovieDetails';
+import { Redirect, Route, Router, Switch } from "react-router-dom";
+import Navbar from "./core/components/Navbar";
+import history from "./core/utils/history";
+import Home from "./pages/Home";
+import CreateAccount from "./pages/Home/CreateAccount";
+import Movies from "./pages/Movies";
+import PrivateRoute from "./core/components/Routes/PrivateRoute";
+import { isAuthenticated } from "./core/utils/auth";
+import MovieDetails from "./pages/Movies/components/MovieDetails";
 
 const Routes = () => (
-  <Router history={history}>
+  <Router history={ history }>
     <Navbar />
+
     <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <PrivateRoute path="/movies">
-        <Route path="/movies" exact>
-          <Movie />
-        </Route>
-        <Route path="/movies/:movieId" exact>
-          <MovieDetails />
-        </Route>
+      <Redirect from="/" to="/login" exact />
+      <Route
+        path="/login"
+        render={() => {
+          return (isAuthenticated() ?
+            <Redirect to='/movies' /> :
+            <Home />
+          )
+        }}
+      />
+
+      <Route
+        path="/criar-conta"
+        render={() => {
+          return (isAuthenticated() ?
+            <Redirect to='/movies' /> :
+            <CreateAccount />
+          )
+        }}
+      />
+
+      <PrivateRoute path="/movies" exact>
+        <Movies />
+      </PrivateRoute>
+
+      <PrivateRoute path="/movies/:movieId">
+        <MovieDetails />
       </PrivateRoute>
     </Switch>
   </Router>
-);
+)
 
-export default Routes;
+export default Routes

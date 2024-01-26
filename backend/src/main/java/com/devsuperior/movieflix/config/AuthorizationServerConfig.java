@@ -72,7 +72,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore)
                 .accessTokenConverter(accessTokenConverter)
-                .tokenEnhancer(chain)
-                .userDetailsService(userDetailsService);
+                .tokenEnhancer(chain);
     }
 }
